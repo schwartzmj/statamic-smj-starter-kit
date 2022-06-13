@@ -1,0 +1,27 @@
+export_paths:
+  - app/Exceptions/Handler.php
+  - app/Http/Controllers/DynamicToken.php
+  - app/Providers/EventServiceProvider.php
+  - content
+  - config/filesystems.php
+  - config/statamic/antlers.php
+  - config/ray.php
+  - .env.example
+  - .gitignore
+  - resources
+  - routes/web.php
+  - public/assets
+  - public/icons
+  - package.json
+  - prettier.config.js
+  - tailwind.config.cp.js
+  - tailwind.config.site.js
+  - users
+  - webpack.mix.js
+  - .vscode/extensions.json
+dependencies:
+  cnj/seotamic: ^2.0
+  pecotamic/sitemap: ^1.4
+  schwartzmj/statamic-akismet: dev-main
+  spatie/laravel-ray: ^1.29
+  spatie/statamic-responsive-images: ^2.11

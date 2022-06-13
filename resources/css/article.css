@@ -1,0 +1,30 @@
+@layer components {
+  /* Spreads out all blocks vertically with a uniform space between them. */
+  .article-container {
+    width: 100%;
+    @apply mx-auto flex max-w-6xl flex-col items-center space-y-12 px-8 py-12;
+  }
+  /* If the last child of either container is full bleed (e.g. when it has a full width colored background), give it negative margin bottom to get it flush to the footer. */
+  .article-container > *:last-child.size-full-bleed {
+    @apply -mb-12;
+  }
+
+  /* Sizing utilities for sets in our bard (long form content). */
+  /* On small devices they're full width. */
+  /* On larger devices they go from medium to extra large. (E.g. an image wider then text in an article.) */
+  /* Sizing utilities for sets in our bard (long form content). On larger devices they go from medium to extra large. */
+  .size-sm {
+    @apply w-full md:w-2/3 lg:w-1/2;
+  }
+  .size-md {
+    @apply w-full md:w-2/3;
+  }
+  .size-lg {
+    @apply w-full md:w-[80%] lg:w-[80%];
+  }
+  .size-full-bleed {
+    /* https://piccalil.li/tutorial/creating-a-full-bleed-css-utility/ */
+    /* turns out we do not need to margin calculation, likely because the article-container is flex col and is centering already */
+    @apply w-screen;
+  }
+}

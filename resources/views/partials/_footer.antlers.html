@@ -1,0 +1,30 @@
+<footer class="bg-primary-900">
+  <div class="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
+    <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+      {{ nav:footer }}
+      <div class="px-5 py-2">
+        <a
+          href="{{ url }}"
+          class="text-base text-primary-50 hover:text-primary-200"
+          >{{ title }}</a
+        >
+      </div>
+      {{ /nav:footer }}
+    </nav>
+    <div class="mt-8 flex justify-center space-x-6">
+      {{ socials:items }}
+      <a
+        href="{{ url }}"
+        target="_blank"
+        class="text-primary-50 hover:text-primary-200"
+      >
+        <span class="sr-only">{{ label }}</span>
+        {{ svg :src="icon" :alt="label" class="w-6 h-6" }}
+      </a>
+      {{ /socials:items }}
+    </div>
+    <p class="mt-8 text-center text-base text-primary-50">
+      &copy; 2022 {{ site:name }}
+    </p>
+  </div>
+</footer>

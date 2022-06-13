@@ -1,0 +1,38 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "mix",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "npm run production",
+    "production": "mix --production"
+  },
+  "dependencies": {
+    "@alpinejs/collapse": "^3.10.2",
+    "@alpinejs/focus": "^3.10.2",
+    "@alpinejs/persist": "^3.10.2",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.1",
+    "@tailwindcss/line-clamp": "^0.4.0",
+    "@tailwindcss/typography": "^0.5.1",
+    "alpinejs": "^3.10.2",
+    "autoprefixer": "^10.4.0",
+    "browser-sync": "^2.27.9",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "cross-env": "^7.0",
+    "css-loader": "^5.2.7",
+    "laravel-mix": "^6.0",
+    "postcss": "^8.4.5",
+    "postcss-import": "^14.0.1",
+    "tailwindcss": "^3.0.19",
+    "vue": "2.6.14",
+    "vue-loader": "^15.9.8",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2",
+    "prettier-plugin-tailwindcss": "^0.1.11"
+  }
+}

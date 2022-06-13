@@ -1,0 +1,24 @@
+title: Form
+fields:
+  - handle: heading
+    field:
+      input_type: text
+      type: text
+      localizable: true
+      listable: hidden
+      display: Heading
+      validate:
+        - required
+  - handle: body
+    field: common.text_plain
+    config:
+      validate:
+        - required
+  - handle: form
+    field:
+      max_items: 1
+      type: form
+      listable: hidden
+      display: Form
+      validate:
+        - required

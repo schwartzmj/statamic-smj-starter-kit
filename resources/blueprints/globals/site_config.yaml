@@ -1,0 +1,54 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: logo
+        field:
+          mode: list
+          container: assets
+          folder: site
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          max_files: 1
+          display: Logo
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          read_only: false
+          validate:
+            - required
+      -
+        handle: logo_light
+        field:
+          mode: list
+          container: assets
+          folder: site
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          max_files: 1
+          display: 'Logo Light'
+          type: assets
+          icon: assets
+          instructions: 'Logo to be displayed on dark backgrounds.'
+          listable: hidden
+          instructions_position: above
+          validate:
+            - required
+          read_only: false
+      -
+        handle: call_to_action
+        field:
+          display: 'Call to Action'
+          type: section
+          icon: section
+          instructions: 'Create the global call to action, used in components like the primary nav, hero, and call to action sections.'
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        import: button
+        prefix: cta_

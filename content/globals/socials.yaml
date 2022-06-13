@@ -1,0 +1,7 @@
+title: Socials
+data:
+  items:
+    -
+      icon: brands/facebook.svg
+      label: Facebook
+      url: 'https://www.facebook.com'

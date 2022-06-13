@@ -1,0 +1,6 @@
+.breakpoint:before {
+  @apply block uppercase content-['-'] sm:content-['sm'] md:content-['md'] lg:content-['lg'] xl:content-['xl'] 2xl:content-['2xl'];
+}
+[x-cloak] {
+  display: none !important;
+}

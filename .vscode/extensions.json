@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "adrianwilczynski.alpine-js-intellisense",
+    "stillat-llc.vscode-antlers",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "Vue.volar"
+  ]
+}

@@ -1,0 +1,11 @@
+name: 'Example User'
+super: true
+id: aa81418e-e8f3-45dd-b03a-9a069010e1f0
+password_hash: $2y$10$z1sHqBYg8lvVxsQSRxhHOO5EA.XY2cJKMEpgUIFpK4pUiVaA5rS9S
+preferences:
+  assets:
+    icons:
+      per_page: 500
+  collections:
+    pages:
+      after_save: continue_editing

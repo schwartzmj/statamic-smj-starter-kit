@@ -1,0 +1,19 @@
+title: Logo Type
+fields:
+  - handle: logo_type
+    field:
+      options:
+        light: Light
+        dark: Dark
+      inline: false
+      cast_booleans: false
+      default: light
+      display: "Logo Type"
+      type: radio
+      icon: radio
+      instructions: "Optionally set the logo type for this page. If the background of the top of the page is light, you'll likely want the dark version and vice versa."
+      listable: hidden
+      instructions_position: above
+      read_only: false
+      validate:
+        - required

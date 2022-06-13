@@ -1,0 +1,75 @@
+title: Collection
+fields:
+  -
+    handle: _template
+    field:
+      options:
+        simple: Simple
+      multiple: false
+      max_items: 1
+      clearable: false
+      searchable: true
+      taggable: false
+      push_tags: false
+      cast_booleans: false
+      default: simple
+      display: Template
+      type: select
+      icon: select
+      listable: hidden
+      instructions_position: above
+      read_only: false
+      validate:
+        - required
+      width: 50
+  -
+    handle: heading
+    field:
+      input_type: text
+      type: text
+      localizable: true
+      listable: hidden
+      display: Heading
+      instructions_position: above
+      read_only: false
+      antlers: false
+  -
+    handle: description
+    field:
+      antlers: false
+      display: Description
+      type: textarea
+      icon: textarea
+      listable: hidden
+      instructions_position: above
+      read_only: false
+      if:
+        heading: 'not empty'
+      instructions: 'Optionally add a description.'
+  -
+    handle: collection
+    field:
+      max_items: 1
+      mode: default
+      display: Collection
+      type: collections
+      icon: collections
+      listable: hidden
+      instructions_position: above
+      read_only: false
+      validate:
+        - required
+      width: 50
+  -
+    handle: collection_filter
+    field:
+      mode: default
+      create: false
+      display: 'Collection Filter'
+      type: entries
+      icon: entries
+      instructions: 'Optionally filter out entries from this collection.'
+      listable: hidden
+      instructions_position: above
+      read_only: false
+      width: 50

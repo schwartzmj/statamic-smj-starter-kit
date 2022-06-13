@@ -1,0 +1,23 @@
+{{# @name Figure @desc The figure component. A sizeable image rendered in a
+figure tag with optional caption. @set page.article.figure #}}
+
+<!-- /components/_figure.antlers.html -->
+<figure
+  class="
+        not-prose
+        {{ switch(
+            (size == 'sm') => 'size-sm',
+            (size == 'md') => 'size-md',
+            (size == 'lg') => 'size-lg',
+            (size == 'full_bleed') => 'size-full-bleed',
+            () => 'size-md'
+        )}}
+    "
+>
+  {{ responsive:image class="w-full" }}
+  <!-- Caption -->
+  {{ if caption }}
+  <span class="block mt-2 text-gray-600 text-sm">{{ caption }}</span>
+  {{ /if }}
+</figure>
+<!-- End: /components/_figure.antlers.html -->

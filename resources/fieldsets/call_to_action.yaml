@@ -1,0 +1,17 @@
+title: 'Call to action'
+fields:
+  -
+    handle: heading
+    field:
+      input_type: text
+      type: text
+      localizable: true
+      listable: hidden
+      display: Heading
+      validate:
+        - required
+      instructions_position: above
+      read_only: false
+      antlers: false
+  -
+    import: button

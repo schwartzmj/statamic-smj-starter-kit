@@ -1,0 +1,117 @@
+title: 'Common reusable fields'
+fields:
+  -
+    handle: icon
+    field:
+      mode: list
+      container: icons
+      restrict: false
+      allow_uploads: false
+      show_filename: true
+      max_files: 1
+      display: Icon
+      type: assets
+      icon: assets
+      listable: hidden
+      instructions_position: above
+      read_only: false
+      validate:
+        - image
+  -
+    handle: image
+    field:
+      mode: grid
+      container: assets
+      restrict: false
+      allow_uploads: true
+      max_files: 1
+      type: assets
+      localizable: true
+      listable: hidden
+      display: Image
+      instructions_position: above
+      read_only: false
+      show_filename: true
+      validate:
+        - image
+  -
+    handle: entry
+    field:
+      max_items: 1
+      mode: default
+      type: entries
+      localizable: true
+      listable: false
+      display: Entry
+  -
+    handle: text_rich
+    field:
+      buttons:
+        - h2
+        - h3
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - anchor
+      save_html: false
+      toolbar_mode: fixed
+      link_noopener: true
+      link_noreferrer: false
+      container: assets
+      target_blank: false
+      reading_time: false
+      fullscreen: true
+      allow_source: true
+      type: bard
+      replicator_preview: false
+      localizable: true
+      listable: hidden
+      display: Text
+  -
+    handle: text_basic
+    field:
+      buttons:
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - anchor
+      save_html: false
+      toolbar_mode: fixed
+      link_noopener: true
+      link_noreferrer: false
+      container: assets
+      target_blank: false
+      reading_time: false
+      fullscreen: true
+      allow_source: true
+      type: bard
+      replicator_preview: false
+      localizable: true
+      listable: hidden
+      display: Text
+  -
+    handle: text_plain
+    field:
+      type: textarea
+      localizable: true
+      listable: hidden
+      display: Text
+  -
+    handle: size
+    field:
+      options:
+        sm: Small
+        md: Medium
+        lg: Large
+        full_bleed: 'Full Bleed'
+      type: button_group
+      localizable: true
+      default: md
+      listable: hidden
+      display: Size
+      instructions_position: above
+      read_only: false

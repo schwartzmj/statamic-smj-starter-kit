@@ -1,0 +1,12 @@
+title: 'Site Config'
+data:
+  logo: site/logo-placeholder.svg
+  logo_light: site/logo-light-placeholder.svg
+  cta_label: 'Contact Us'
+  cta_link_type: entry
+  cta_target_blank: false
+  cta_entry: 4e0d9ea7-dc1b-427e-9e99-45e6a16524f1
+  cta_url: /contact
+  cta_button_type: button
+  cta_attr_title: 'Contact Us'
+  cta_attr_aria: 'Contact Us'

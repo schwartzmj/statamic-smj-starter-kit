@@ -1,0 +1,9 @@
+{{# @name Text @desc The text component for regular styled text from Bard. #}}
+
+<!-- /components/_text.antlers.html -->
+{{ if text | strip_tags | length === 0 }}
+<!-- Text of this section is empty, rendering nothing. -->
+{{ else }}
+<div class="size-lg prose prose-lg">{{ text }}</div>
+{{ /if }}
+<!-- End: /components/_text.antlers.html -->

@@ -1,0 +1,11 @@
+{{ partial:sections/header/simple }} This is the blog template.
+
+<div class="prose">
+  <ul>
+    {{ collection:posts }}
+    <li>
+      <a href="{{ url }}">{{ title }}</a>
+    </li>
+    {{ /collection:posts }}
+  </ul>
+</div>

@@ -1,0 +1,9 @@
+{{# @name Article @desc The article page builder block. It extends the prose
+typography partial. #}}
+
+<!-- {{ "components/{type}" }} (article _default) -->
+<section class="w-full">
+  <article class="article-container">
+    {{ article }} {{ partial src="components/{type}" }} {{ /article }}
+  </article>
+</section>

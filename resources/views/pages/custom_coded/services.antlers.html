@@ -1,0 +1,11 @@
+{{ partial:sections/header/simple }} This is the services template.
+
+<div class="prose">
+  <ul>
+    {{ collection:pages blueprint:is="service" }}
+    <li>
+      <a href="{{ url }}">{{ title }}</a>
+    </li>
+    {{ /collection:pages }}
+  </ul>
+</div>
