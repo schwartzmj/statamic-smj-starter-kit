@@ -1,9 +1,9 @@
 {
-    "name": "my-vendor-name/export",
+    "name": "schwartzmj/statamic-smj-starter-kit",
     "extra": {
         "statamic": {
-            "name": "Export",
-            "description": "Export starter kit"
+            "name": "Statamic smj Starter Kit",
+            "description": "Statamic smj Starter Kit"
         }
     }
 }
