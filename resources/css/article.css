@@ -2,7 +2,7 @@
   /* Spreads out all blocks vertically with a uniform space between them. */
   .article-container {
     width: 100%;
-    @apply mx-auto flex max-w-6xl flex-col items-center space-y-12 px-8 py-12;
+    @apply theme-container mx-auto flex flex-col items-center space-y-12 py-12;
   }
   /* If the last child of either container is full bleed (e.g. when it has a full width colored background), give it negative margin bottom to get it flush to the footer. */
   .article-container > *:last-child.size-full-bleed {

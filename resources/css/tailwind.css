@@ -60,4 +60,8 @@
   .btn-alt {
     @apply btn bg-primary-100 text-primary-700 shadow-primary-300/30 hover:bg-primary-200;
   }
+  /* Can be used for consistent horizontal spacing. */
+  .theme-container {
+    @apply max-w-7xl px-6;
+  }
 }
