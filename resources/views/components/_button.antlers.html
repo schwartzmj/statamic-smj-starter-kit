@@ -1,0 +1,28 @@
+{{#
+    @name Button
+    @desc Use when using the 'button' fieldset.
+    @param label The caption label.
+    @param as The wrapping element. Defaults to `a`.
+    @param button_type `Inline` if the button needs to be rendered as an inline button.
+    @param faux Boolean. For faux button wrapped in an actual button/anchor.
+    @param inverted Boolean. When the button needs inverted styles.
+    @param class Provide classes for the button. Defaults to 'btn'.
+#}}
+<!-- -->
+<{{ as or 'a' }}
+    {{ slot:attributes }}
+    class="{{ class ?? 'btn' }}"
+    {{ switch(
+        (link_type == 'entry') => 'href="{{ entry:url }}"',
+        (link_type == 'url') => 'href="{{ url }}"',
+        (link_type == 'email') => 'href="mailto:{{ email | obfuscate_email }}"',
+        (link_type == 'tel') => 'href="tel:{{ tel }}"',
+        (link_type == 'asset') => 'href="{{ asset }}" download',
+        () => void
+    )}}
+    {{ target_blank ?= 'rel="noopener" target="_blank"' }}
+    {{ attr_title ?= 'title="{{ attr_title }}"' }}
+    {{ attr_aria ?= 'aria-label="{{ attr_aria }}"' }}
+>
+    {{ link_type == 'email' ? { label | obfuscate_email } : label }}
+</{{ as or 'a' }}>

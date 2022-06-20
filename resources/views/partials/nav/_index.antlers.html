@@ -1,55 +1,123 @@
 <!-- Outermost container sticks to top of screen, but is most necessary because it gets set to h-screen when mobile menu is open - and is a flex col container - which allows the pop-up menu to grow from the bottom of the navbar to fill the rest of the screen -->
 <div
-  :class="[mobileMenuOpen ? 'h-screen' : '']"
-  class="fixed top-0 left-0 z-[99] flex w-full flex-col"
+  :class="[showFixedNav ? 'fixed' : 'absolute']"
+  class="relative flex w-full flex-col"
   x-data="{
         mobileMenuOpen: false,
-        atTopOfPage: true,
+        showFixedNav: false,
+        atTopOfPage: window.pageYOffset === 0,
+        lastKnownScrollYPos: window.pageYOffset,
+        shortestUserYOffset: window.pageYOffset,
+        furthestUserYOffset: window.pageYOffset,
+        scrollThreshold: 250,
       }"
-  x-init="atTopOfPage = window.scrollY <= 50
-      window.addEventListener('scroll', () => {
-        atTopOfPage = window.scrollY <= 50
-      });
-      $watch('mobileMenuOpen', (isAtTop) => {
-            if (isAtTop) {
-              document.body.classList.add('overflow-hidden');
-            } else {
-              document.body.classList.remove('overflow-hidden');
+  x-init="
+        window.addEventListener('scroll', () => {
+            // reset if at top of page
+            if (window.pageYOffset === 0 ) {
+                atTopOfPage = true;
+                lastKnownScrollYPos = window.pageYOffset,
+                shortestUserYOffset = window.pageYOffset,
+                furthestUserYOffset = window.pageYOffset;
+                showFixedNav = false;
+                return;
             }
-      })"
+            // show fixed nav if we scroll up past the threshold
+            else if (window.pageYOffset >= scrollThreshold && (furthestUserYOffset - window.pageYOffset) > scrollThreshold) {
+                showFixedNav = true;
+                atTopOfPage = window.pageYOffset === 0;
+                lastKnownScrollYPos = window.pageYOffset,
+                shortestUserYOffset = window.pageYOffset,
+                furthestUserYOffset = window.pageYOffset;
+                return;
+            // hide fixed nav if we scroll down past the threshold divided by 2 (hide it quicker than it shows)
+            } else if (window.pageYOffset > shortestUserYOffset + (scrollThreshold / 2)) {
+                showFixedNav = false;
+                atTopOfPage = window.pageYOffset === 0;
+                lastKnownScrollYPos = window.pageYOffset,
+                shortestUserYOffset = window.pageYOffset,
+                furthestUserYOffset = window.pageYOffset;
+                return;
+            }
+            // update furthest user y offset
+            if (lastKnownScrollYPos < window.pageYOffset) {
+                furthestUserYOffset = window.pageYOffset;
+            }
+            // update shortest user y offset
+            if (shortestUserYOffset > window.pageYOffset) {
+                shortestUserYOffset = window.pageYOffset;
+            }
+            // check if at top of page and update last known scroll y pos
+            atTopOfPage = window.pageYOffset === 0;
+            lastKnownScrollYPos = window.pageYOffset;
+        });
+        $watch('mobileMenuOpen', (mobileMenuOpen) => {
+            if (mobileMenuOpen) {
+                document.body.classList.add('overflow-hidden');
+            } else {
+                document.body.classList.remove('overflow-hidden');
+            }
+        });
+      "
 >
   <!-- Container for bg color while still allowing the nav container to have padding, via the very next element/container... -->
+  <style>
+    /* Create an animation that starts -100% transformY and ends at 0% transformY */
+    @keyframes slideIn {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    .slideIn {
+      animation: slideIn 0.5s ease-in-out;
+    }
+    @keyframes slideOut {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-100%);
+      }
+    }
+    .slideOut {
+      animation: slideOut 0.5s ease-in-out;
+    }
+  </style>
   <nav
+    id="nav"
     :class="[
-        atTopOfPage
-        ? 'bg-transparent'
-        : 'bg-primary-900 shadow-lg shadow-primary-900/50',
+        showFixedNav && !atTopOfPage
+        ? 'fixed slideIn top-0 left-0 z-[99] text-white shadow-lg'
+        : '',
     ]"
-    class="w-full text-white transition-all duration-200"
+    class="w-full bg-white text-gray-500 transition-all duration-200"
   >
     <!-- Padding / main container -->
-    <div class="container mx-auto flex items-center justify-between p-4 md:p-8">
+    <div class="theme-container mx-auto flex items-center justify-between py-4">
       <!-- Logos: colored and uncolored images for transparent and colored header -->
-      <a href="/" class="flex max-w-[10rem] items-center md:max-w-xs">
-        {{ if logo_type === 'dark' }}
-        <!-- Normal / Dark -->
-        {{ responsive:site_config.logo x-show="atTopOfPage" loading="eager"
-        placeholder="false" }}
-        <!-- -->
-        {{ else }}
+      <a href="/" class="flex max-w-[8rem] items-center md:max-w-[10rem]">
+        {{ if logo_type === 'light' }}
         <!-- Light -->
         {{ responsive:site_config.logo_light x-show="atTopOfPage"
         loading="eager" placeholder="false" }}
         <!-- -->
+        {{ else }}
+        <!-- Normal / Dark -->
+        {{ responsive:site_config.logo x-show="atTopOfPage" loading="eager"
+        placeholder="false" }}
+        <!-- -->
         {{ /if }}
-        <!-- Light -->
-        {{ responsive:site_config.logo_light x-show="!atTopOfPage"
-        placeholder="false" loading="lazy" x-cloak="true" }}
+        <!-- Dark -->
+        {{ responsive:site_config.logo x-show="!atTopOfPage" placeholder="false"
+        loading="lazy" x-cloak="true" }}
       </a>
       <div class="flex items-center lg:space-x-8">
         <!-- Desktop Nav Items -->
         <ul
-          class="hidden items-center space-x-3 font-heading text-sm font-semibold lg:flex xl:space-x-8 xl:text-xl"
+          class="hidden items-center space-x-3 text-base lg:flex lg:space-x-8"
         >
           {{ nav:primary }}
           <li>
@@ -57,13 +125,10 @@
             <div
               x-data="{ open: false }"
               @click.away="open = false"
-              class="relative"
+              class="relative z-[9999]"
               x-cloak
             >
-              <button
-                @click="open = !open"
-                class="hidden items-center font-heading font-semibold lg:flex"
-              >
+              <button @click="open = !open" class="hidden items-center lg:flex">
                 <span>{{ title }}</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +149,7 @@
               <ul
                 x-show="open"
                 x-transition.duration.500ms
-                class="theme-rounded absolute top-full mt-4 flex flex-col items-start overflow-hidden bg-white font-heading text-sm uppercase text-gray-700 shadow"
+                class="theme-rounded absolute top-full mt-4 flex flex-col items-start overflow-hidden bg-white text-sm uppercase text-gray-700 shadow"
               >
                 {{ children }}
                 <li class="w-full">
@@ -103,11 +168,12 @@
           </li>
           {{ /nav:primary }}
         </ul>
+      </div>
+      <div class="flex items-center">
         <!-- CTA -->
         <div class="hidden lg:block">
-          <a href="{{ site_config:cta_url }}" class="btn"
-            >{{ site_config:cta_label }}</a
-          >
+          {{ call_to_action }} {{ partial:components/button }} {{
+          /call_to_action }}
         </div>
         <!-- Mobile Menu Button -->
         <div class="block lg:hidden">{{ partial:nav/mobile_menu }}</div>

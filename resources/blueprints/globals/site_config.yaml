@@ -39,16 +39,3 @@ sections:
           validate:
             - required
           read_only: false
-      -
-        handle: call_to_action
-        field:
-          display: 'Call to Action'
-          type: section
-          icon: section
-          instructions: 'Create the global call to action, used in components like the primary nav, hero, and call to action sections.'
-          listable: hidden
-          instructions_position: above
-          read_only: false
-      -
-        import: button
-        prefix: cta_

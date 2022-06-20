@@ -19,6 +19,8 @@ export_paths:
   - users
   - webpack.mix.js
   - .vscode/extensions.json
+export_as:
+  starter-kit-composer.json: composer.json
 dependencies:
   cnj/seotamic: ^2.0
   pecotamic/sitemap: ^1.4

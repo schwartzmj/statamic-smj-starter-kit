@@ -1,0 +1,14 @@
+sections:
+  main:
+    display: Main
+    fields:
+      - handle: _call_to_action_button_fields_section
+        field:
+          display: "Call to Action Button Fields"
+          type: section
+          icon: section
+          listable: hidden
+          instructions_position: above
+          read_only: false
+          instructions: "Create the global call to action, used in components like the primary nav, hero, and call to action sections."
+      - import: button

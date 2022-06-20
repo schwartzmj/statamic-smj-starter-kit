@@ -63,7 +63,7 @@
 </div>
 #}}
 <button
-  class="theme-rounded relative z-[999] flex items-center space-x-1 px-4 py-2"
+  class="theme-rounded relative z-[999] flex items-center space-x-1 py-2"
   @click="mobileMenuOpen = true"
   x-show="!mobileMenuOpen"
 >
@@ -90,15 +90,15 @@
   aria-modal="true"
 >
   <!--
-      Background backdrop, show/hide based on slide-over state.
+        Background backdrop, show/hide based on slide-over state.
 
-      Entering: "ease-in-out duration-500"
-        From: "opacity-0"
-        To: "opacity-100"
-      Leaving: "ease-in-out duration-500"
-        From: "opacity-100"
-        To: "opacity-0"
-    -->
+        Entering: "ease-in-out duration-500"
+          From: "opacity-0"
+          To: "opacity-100"
+        Leaving: "ease-in-out duration-500"
+          From: "opacity-100"
+          To: "opacity-0"
+      -->
   <div
     x-show="mobileMenuOpen"
     x-transition:enter="transition ease-out duration-300"
@@ -116,15 +116,15 @@
         class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10"
       >
         <!--
-            Slide-over panel, show/hide based on slide-over state.
+              Slide-over panel, show/hide based on slide-over state.
 
-            Entering: "transform transition ease-in-out duration-500 sm:duration-700"
-              From: "translate-x-full"
-              To: "translate-x-0"
-            Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
-              From: "translate-x-0"
-              To: "translate-x-full"
-          -->
+              Entering: "transform transition ease-in-out duration-500 sm:duration-700"
+                From: "translate-x-full"
+                To: "translate-x-0"
+              Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
+                From: "translate-x-0"
+                To: "translate-x-full"
+            -->
         <div
           x-show="mobileMenuOpen"
           x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"

@@ -1,0 +1,7 @@
+title: 'Call to Action'
+data:
+  label: 'Contact Us'
+  link_type: url
+  target_blank: false
+  url: /contact
+  button_type: button
