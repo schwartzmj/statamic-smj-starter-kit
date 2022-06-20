@@ -60,8 +60,19 @@
   .btn-alt {
     @apply btn bg-primary-100 text-primary-700 shadow-primary-300/30 hover:bg-primary-200;
   }
+  /* Used for dark backgrounds. */
+  .btn-outline {
+    @apply btn border border-primary-100 bg-transparent text-primary-100 shadow-none;
+  }
+  /* Used for standard <a /> links */
+  .link {
+    @apply inline-flex items-center justify-center space-x-1 text-primary-500 transition-all duration-300 ease-in-out hover:text-primary-700;
+  }
   /* Can be used for consistent horizontal spacing. */
   .theme-container {
     @apply max-w-7xl px-6;
+  }
+  .theme-container-none {
+    @apply px-0 lg:max-w-none;
   }
 }
