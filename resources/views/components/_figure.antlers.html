@@ -14,10 +14,11 @@ figure tag with optional caption. @set page.article.figure #}}
         )}}
     "
 >
-  {{ responsive:image class="w-full" }}
+  {{ responsive:image class="w-full" glide:width="{ size === 'full_bleed' ?
+  '1920' : '820' }" glide:quality="70" }}
   <!-- Caption -->
   {{ if caption }}
-  <span class="block mt-2 text-gray-600 text-sm">{{ caption }}</span>
+  <span class="mt-2 block text-sm text-gray-600">{{ caption }}</span>
   {{ /if }}
 </figure>
 <!-- End: /components/_figure.antlers.html -->
