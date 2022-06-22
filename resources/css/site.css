@@ -4,3 +4,14 @@
 [x-cloak] {
   display: none !important;
 }
+
+html {
+  scroll-behavior: smooth; /* Smooth scrolling on the whole document */
+  scroll-padding-top: 200px; /* When click anchor link, scroll this amount above it. */
+}
+/* Remove smooth scrolling for people with 'prefers-reduced-motion: reduce' */
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
