@@ -5,6 +5,7 @@ export_paths:
   - content
   - config/filesystems.php
   - config/google-fonts.php
+  - config/session.php
   - config/statamic/antlers.php
   - config/ray.php
   - .env.example
