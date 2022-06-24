@@ -10,6 +10,7 @@ export_paths:
   - config/ray.php
   - .env.example
   - .gitignore
+  - README.md
   - resources
   - routes/web.php
   - public/assets
