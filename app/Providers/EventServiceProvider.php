@@ -33,7 +33,7 @@ class EventServiceProvider extends ServiceProvider
         Event::listen(function (NavTreeSaved $event) {
             // Whenever a nav is updated, we bust the cache for it.
             // Statamic navs are expensive to render.
-            Cache::forget('nav');
+            Cache::flush();
         });
 
         Event::listen(function (EntrySaved $event) {
@@ -41,7 +41,7 @@ class EventServiceProvider extends ServiceProvider
             // This is because all entries that have a url (route/page) have an option to change the logo in the primary nav.
             // If the logo is changed, we need to bust the cache so the new logo is shown.
             if ($event->entry->url()) {
-                Cache::forget('nav');
+                Cache::flush();
             }
         });
     }

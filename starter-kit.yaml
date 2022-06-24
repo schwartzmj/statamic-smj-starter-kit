@@ -4,6 +4,7 @@ export_paths:
   - app/Providers/EventServiceProvider.php
   - content
   - config/filesystems.php
+  - config/google-fonts.php
   - config/statamic/antlers.php
   - config/ray.php
   - .env.example
@@ -18,12 +19,13 @@ export_paths:
   - tailwind.config.site.js
   - users
   - webpack.mix.js
+  - .prettierignore
   - .vscode/extensions.json
 export_as:
   starter-kit-composer.json: composer.json
 dependencies:
-  cnj/seotamic: ^2.0
   pecotamic/sitemap: ^1.4
   schwartzmj/statamic-akismet: dev-main
+  spatie/laravel-google-fonts: ^1.2
   spatie/laravel-ray: ^1.29
   spatie/statamic-responsive-images: ^2.11

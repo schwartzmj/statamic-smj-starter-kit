@@ -12,5 +12,6 @@ seotamic_open_graph_description: general
 seotamic_twitter_title: title
 seotamic_twitter_description: general
 updated_by: aa81418e-e8f3-45dd-b03a-9a069010e1f0
-updated_at: 1654874694
+updated_at: 1656086503
+featured_image: placeholder.jpg
 ---

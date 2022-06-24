@@ -1,6 +1,6 @@
 {{# Create the selected form and reference Alpine data in `sending()`. Prevent
 form from submitting with POST as we will submit with AJAX. #}}
-<div class="mt-8" x-data="sending">
+<div x-data="sending">
   {{ form:create :in="form:handle ?? handle" id="form-{form:handle ?? handle}"
   csrf="false" class="flex flex-wrap" x-ref="form" @submit.prevent="sendForm()"
   js="alpine:dynamic_form" }}

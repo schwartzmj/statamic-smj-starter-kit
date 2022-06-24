@@ -1,5 +1,18 @@
 const mix = require("laravel-mix");
+const partytown = require("@builder.io/partytown/utils");
+const { partytownSnippet } = require("@builder.io/partytown/integration");
+const fs = require("fs");
+const path = require("path");
 
+// Partytown snippet
+fs.writeFileSync(
+  path.join(__dirname, "storage", "app", "public", "partytownSnippet.txt"),
+  partytownSnippet(),
+  {
+    encoding: "utf8",
+    flag: "w",
+  }
+);
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

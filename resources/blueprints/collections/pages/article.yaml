@@ -52,6 +52,13 @@ sections:
           validate:
             - required
           default: pages/article
+      -
+        handle: featured_image
+        field: common.image
+        config:
+          display: 'Featured Image'
+          validate:
+            - image
   SEO:
     display: SEO
     fields:

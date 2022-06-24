@@ -1,0 +1,31 @@
+{{#
+    Note: this file is in .prettierignore
+#}}
+{{?
+    $party_town_snippet = \Illuminate\Support\Facades\Storage::disk('public')->get('partytownSnippet.txt');
+?}}
+
+{{# <script>
+    partytown = {
+        forward: ['dataLayer.push'],
+    };
+</script> #}}
+<!-- -->
+<script>
+    {{ party_town_snippet }}
+</script>
+
+{{# <!-- Global site tag (gtag.js) - Google Analytics -->
+<script
+    type="text/partytown"
+    src="https://www.googletagmanager.com/gtag/js?id=G-LOREM"
+></script>
+<script type="text/partytown">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+    dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-LOREM");
+</script> #}}

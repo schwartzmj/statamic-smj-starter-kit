@@ -1,0 +1,65 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: image
+        field: common.image
+        config:
+          validate:
+            - required
+            - image
+            - 'mimes:jpeg,png,jpg'
+          instructions: 'Use your logo or any other branded image for the rest of your pages. Use images with a 1.91:1 ratio and minimum recommended dimensions of 1200x630 for optimal clarity across all devices.'
+          folder: site
+      -
+        handle: watermark
+        field: common.image
+        config:
+          display: Watermark
+          validate:
+            - image
+            - 'mimes:jpeg,png,jpg'
+          instructions: 'Add a watermark to every OG Image.'
+          folder: site
+      -
+        handle: prepend_on_title
+        field:
+          input_type: text
+          character_limit: 25
+          antlers: false
+          display: 'Prepend on Title'
+          type: text
+          icon: text
+          instructions: 'This will be PREPENDED to all of the titles.'
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: append_on_title
+        field:
+          input_type: text
+          character_limit: 25
+          antlers: false
+          display: 'Append on Title'
+          type: text
+          icon: text
+          instructions: 'This will be APPENDED to all of the titles.'
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: description
+        field:
+          character_limit: '160'
+          antlers: false
+          display: Description
+          type: textarea
+          icon: textarea
+          instructions: "If a \"Description\" is set on a specific page, that will be used instead, otherwise the page will default to this. <br />It is used for one major purpose: to describe the page to searchers as they read through the SERPs. This tag doesn't influence ranking, but it's very important regardless. It's the ad copy that will determine if users click on your result. Keep it within 160 characters, and write it to catch the user's attention. Sell the page — get them to click on the result."
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  structured_data:
+    display: 'Structured Data'
+    fields: {  }
