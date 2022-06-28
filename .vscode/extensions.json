@@ -4,6 +4,7 @@
     "stillat-llc.vscode-antlers",
     "esbenp.prettier-vscode",
     "bradlc.vscode-tailwindcss",
-    "Vue.volar"
+    "Vue.volar",
+    "svelte.svelte-vscode"
   ]
 }

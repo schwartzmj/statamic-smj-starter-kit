@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import laravel from "laravel-vite-plugin";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
 // import vue from '@vitejs/plugin-vue';
 // Partytown
 import path from "path";
@@ -25,9 +26,15 @@ export default defineConfig({
     laravel([
       "resources/css/tailwind.css",
       "resources/js/app.js",
+      // Components
+      "resources/js/docSearch/Index.svelte",
+      // CP
       "resources/css/cp.css",
       "resources/js/cp.js",
     ]),
+    svelte({
+      /* plugin options */
+    }),
     // laravel({
     //   input: "resources/js/app.js",
     //   publicDirectory: "public", // default
