@@ -2,9 +2,9 @@
 /public/hot
 /public/storage
 /public/vendor/statamic
-/public/css
-/public/js
+/public/build
 /public/mix-manifest.json
+/public/~partytown
 /public/vendor/app/css
 /public/vendor/app/js
 /public/static

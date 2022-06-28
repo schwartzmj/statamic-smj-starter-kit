@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {{ partial:seo }}
-    <link rel="stylesheet" href="{{ mix src='css/tailwind.css' }}" />
+    <!-- Vite CSS -->
+    {{ partial:vite path="resources/css/tailwind.css" }}
     <!-- -->
     {{ partial:partytown }}
     <!-- -->
@@ -23,6 +24,7 @@
     {{ cache }} {{ if environment !== 'production'}} {{ partial:dev/tailwind }}
     {{ /if }} {{ /cache }}
 
-    <script src="{{ mix src='/js/site.js' }}"></script>
+    <!-- Vite JS -->
+    {{ partial:vite path="resources/js/app.js" }}
   </body>
 </html>
