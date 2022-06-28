@@ -1,8 +1,10 @@
 import DocSearch from "./Index.svelte";
 
-new DocSearch({
+const DocSearchComponent = new DocSearch({
   target: document.querySelector("#doc-search"),
   // props: {
   // 	name: 'world'
   // }
 });
+
+export default DocSearchComponent;
