@@ -20,6 +20,8 @@ export_paths:
   - prettier.config.js
   - tailwind.config.cp.js
   - tailwind.config.site.js
+  - svelte.config.js
+  - tsconfig.json
   - users
   - vite.config.js
   - .prettierignore
