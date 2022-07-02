@@ -4,9 +4,8 @@ Featured Image @param heading - Heading (defaults to Title) @param* body - Body
 
 <div class="relative bg-primary-900">
   <div class="absolute inset-0">
-    {{ if image || featured_image }} {{ responsive src="{{ image ??
-    featured_image }}" class="w-full h-full object-cover" loading="eager" }} {{
-    /if }}
+    {{ responsive src="{{ image ?? featured_image ?? site_config:header_image
+    }}" class="w-full h-full object-cover" loading="eager" }}
     <div
       class="absolute inset-0 bg-primary-800 mix-blend-multiply"
       aria-hidden="true"

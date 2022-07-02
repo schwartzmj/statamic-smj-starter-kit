@@ -2,8 +2,15 @@ sections:
   main:
     display: Main
     fields:
-      -
-        handle: logo
+      - handle: _branding
+        field:
+          display: Branding
+          type: section
+          icon: section
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      - handle: logo
         field:
           mode: list
           container: assets
@@ -20,8 +27,7 @@ sections:
           read_only: false
           validate:
             - required
-      -
-        handle: logo_light
+      - handle: logo_light
         field:
           mode: list
           container: assets
@@ -30,12 +36,29 @@ sections:
           allow_uploads: true
           show_filename: true
           max_files: 1
-          display: 'Logo Light'
+          display: "Logo Light"
           type: assets
           icon: assets
-          instructions: 'Logo to be displayed on dark backgrounds.'
+          instructions: "Logo to be displayed on dark backgrounds."
           listable: hidden
           instructions_position: above
           validate:
             - required
           read_only: false
+      - handle: _defaults
+        field:
+          display: Defaults
+          type: section
+          icon: section
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      - handle: header_image
+        field: common.image
+        config:
+          display: "Header Image"
+          validate:
+            - required
+            - image
+          folder: site
+          instructions: "The default header image used in the top section of pages (depending on the page's template). This is only used if the page does not have a featured image set."
