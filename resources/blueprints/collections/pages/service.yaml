@@ -65,7 +65,7 @@ sections:
           read_only: true
           validate:
             - required
-          default: pages/service
+          default: pages/services/show
       - handle: featured_image
         field: common.image
         config:
