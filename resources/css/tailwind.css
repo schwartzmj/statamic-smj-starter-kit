@@ -51,11 +51,29 @@
   .theme-rounded {
     @apply rounded-sm;
   }
+  .theme-rounded-t {
+    @apply rounded-t-sm;
+  }
+  .theme-rounded-b {
+    @apply rounded-b-sm;
+  }
+  .theme-rounded-tl {
+    @apply rounded-tl-sm;
+  }
+  .theme-rounded-tr {
+    @apply rounded-tr-sm;
+  }
+  .theme-rounded-bl {
+    @apply rounded-bl-sm;
+  }
+  .theme-rounded-br {
+    @apply rounded-br-sm;
+  }
 }
 
 @layer components {
   .btn {
-    @apply theme-rounded flex items-center justify-center border border-transparent bg-primary-600 px-4 py-2 text-base font-medium text-white shadow-md shadow-primary-600/30 transition-all duration-300 ease-in-out hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply theme-rounded flex items-center justify-center border border-transparent bg-primary-600 px-4 py-2 text-base font-medium text-white shadow-md shadow-primary-600/30 transition-all duration-300 ease-in-out hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 md:text-lg;
   }
   .btn-alt {
     @apply btn bg-primary-100 text-primary-700 shadow-primary-300/30 hover:bg-primary-200;
