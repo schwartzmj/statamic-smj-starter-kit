@@ -37,7 +37,12 @@ form from submitting with POST as we will submit with AJAX. #}}
                                 {{ width == '100' ?= 'md:col-span-12' }}"
       >
         <div>
-          {{ unless type === 'section' }}
+          {{ if type === 'section' }}
+          <div class="-mb-4 block text-sm font-semibold text-gray-700">
+            {{ display }}
+            <p class="my-1 text-sm font-normal">{{ instructions }}</p>
+          </div>
+          {{ else }}
           <label
             class="block text-sm font-medium text-gray-700"
             for="{{ handle }}"
@@ -48,13 +53,12 @@ form from submitting with POST as we will submit with AJAX. #}}
             <p class="my-1 text-sm font-normal">{{ instructions }}</p>
             {{ /if }}
           </label>
-          {{ /unless }}
 
           <div
             x-data="{ id: $id('error-label') }"
-            class="{{ inline ? 'grid justify-center lg:justify-start gap-x-4 grid-flow-col grid-rows-1' : 'flex flex-col space-y-2'}}"
+            class="{{ inline ? 'grid justify-center lg:justify-start gap-x-4 grid-flow-col grid-rows-1' : 'flex flex-col'}}"
           >
-            {{ field }}
+            {{ field | strip_tags:br }}
             <!-- -->
             {{# Display error label when there is a validation error with the
             name field. #}}
@@ -67,6 +71,7 @@ form from submitting with POST as we will submit with AJAX. #}}
             </template>
           </div>
         </div>
+        {{ /unless }}
       </div>
     </template>
     {{ /fields }} {{# Pulse button and disable upon sending. #}}
