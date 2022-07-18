@@ -29,9 +29,9 @@ export_paths:
 export_as:
   starter-kit-composer.json: composer.json
 dependencies:
-  league/flysystem-aws-s3-v3: ^3.0
+  league/flysystem-aws-s3-v3: ^3.1
   pecotamic/sitemap: ^1.4
   schwartzmj/statamic-akismet: dev-main
   spatie/laravel-google-fonts: ^1.2
   spatie/laravel-ray: ^1.29
-  spatie/statamic-responsive-images: ^2.11
+  spatie/statamic-responsive-images: ^2.12

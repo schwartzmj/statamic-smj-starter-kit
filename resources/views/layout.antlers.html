@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ site:short_locale }}">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {{ partial:seo }}
-    <!-- Vite CSS -->
-    {{ partial:vite path="resources/css/tailwind.css" }}
-    <!-- -->
-    {{ partial:partytown }}
-    <!-- -->
-    {{ partial:fonts }}
-  </head>
+  {{ partial:head }}
   <body class="bg-gray-50 font-body leading-normal text-gray-700">
     <!-- Primary Nav -->
     {{ cache }} {{ partial:nav/index }} {{ /cache }}
@@ -25,6 +14,6 @@
     {{ /if }} {{ /cache }}
 
     <!-- Vite JS -->
-    {{ partial:vite path="resources/js/app.js" }}
+    {{ vite src="resources/js/app.js" }}
   </body>
 </html>
