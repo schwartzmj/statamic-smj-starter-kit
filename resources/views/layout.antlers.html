@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="{{ site:short_locale }}">
-  {{ partial:head }}
-  <body class="bg-gray-50 font-body leading-normal text-gray-700">
-    <!-- Primary Nav -->
-    {{ cache }} {{ partial:nav/index }} {{ /cache }}
-    <!-- Content -->
-    {{ template_content }}
-    <!-- Footer & Footer Nav -->
-    {{ cache }} {{ partial:footer }} {{ /cache }}
-
-    <!-- Tailwind dev tools if not in prod -->
-    {{ cache }} {{ if environment !== 'production'}} {{ partial:dev/tailwind }}
-    {{ /if }} {{ /cache }}
-
-    <!-- Vite JS -->
-    {{ vite src="resources/js/app.js" }}
-  </body>
+    {{ partial:head }}
+    <body class="bg-gray-50 font-body leading-normal text-gray-700">
+        {{ cache }}
+            {{ partial:nav/index }}
+        {{ /cache }}
+        {{ template_content }}
+        {{ cache }}
+            {{ partial:footer }}
+        {{ /cache }}
+        {{# Tailwind dev tools if not in prod #}}
+        {{ cache }}
+            {{ if environment !== 'production' }}
+                {{ partial:dev/tailwind }}
+            {{ /if }}
+        {{ /cache }}
+        {{ vite src="resources/js/app.js" }}
+    </body>
 </html>
