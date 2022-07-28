@@ -4,7 +4,7 @@ module.exports = {
   content: [
     "./resources/**/*.antlers.html",
     "./resources/**/*.blade.php",
-    "./resources/**/*.{svelte,vue}",
+    "./resources/**/*.{svelte,vue,js}",
     "./content/**/*.md",
   ],
   theme: {
