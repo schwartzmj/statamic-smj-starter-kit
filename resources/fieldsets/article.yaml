@@ -5,6 +5,7 @@ fields:
       buttons:
         - h2
         - h3
+        - h4
         - bold
         - italic
         - unorderedlist
@@ -75,14 +76,7 @@ fields:
                 visibility: visible
                 validate:
                   - required
-            - handle: images
-              field: common.image
-              config:
-                max_files: null
-                display: Images
-                validate:
-                  - image
-                folder: gallery
+            - import: gallery
       container: assets
       enable_input_rules: true
       enable_paste_rules: true

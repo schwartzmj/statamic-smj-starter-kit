@@ -10,7 +10,7 @@
                      (columns === 'two') => 2,
                      (columns === 'three') => 6,
                      (columns === 'four') => 8,
-                     () => 5) }}
+                     () => 6) }}
 <section
     x-data="{ viewAll: false }"
     class="not-prose {{switch(
@@ -31,7 +31,7 @@
         {{ images }}
             <li
                 class="theme-rounded overflow-hidden shadow"
-                {{ if index > amount_to_show - 1 }} x-show="viewAll" x-cloak {{ /if }}
+                {{ if count > amount_to_show }} x-show="viewAll" x-cloak {{ /if }}
             >
                 <a
                     href="{{ url }}"
@@ -60,7 +60,7 @@
         <button
             @click="viewAll = true"
             x-show="!viewAll"
-            class="mt-4 flex w-full items-center justify-center space-x-2 bg-zinc-700 p-4 text-white"
+            class="mt-4 flex w-full items-center justify-center space-x-2 bg-stone-700 p-4 text-white"
         >
             <span>View All</span>
             {{ svg src="icons/heroicons/outline/chevron-down" class="w-5 h-5" }}

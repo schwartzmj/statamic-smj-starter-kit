@@ -1,0 +1,10 @@
+title: Gallery
+fields:
+  - handle: images
+    field: common.image
+    config:
+      max_files: 99
+      display: Images
+      validate:
+        - image
+      folder: gallery
