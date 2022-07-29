@@ -27,6 +27,7 @@ export default defineConfig({
       "resources/css/tailwind.css",
       "resources/js/app.js",
       // Components
+      "resources/js/glightbox.js",
       "resources/js/docSearch/render.ts",
       // CP
       "resources/css/cp.css",

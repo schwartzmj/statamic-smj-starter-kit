@@ -1,0 +1,79 @@
+{{#
+    @name Gallery
+    @desc The gallery component. An array of images to be displayed in the form of a gallery.
+#}}
+
+{{# /components/_gallery.antlers.html #}}
+{{ gallery_id = {slug + '-' + index + '-gallery'} }}
+{{ amount_to_show = switch(
+                     (columns === 'one') => 2,
+                     (columns === 'two') => 2,
+                     (columns === 'three') => 6,
+                     (columns === 'four') => 8,
+                     () => 5) }}
+<section
+    x-data="{ viewAll: false }"
+    class="not-prose {{switch(
+   (size == 'sm') => 'size-sm',
+   (size == 'md') => 'size-md',
+   (size == 'lg') => 'size-lg',
+   (size == 'full_bleed') => 'size-full-bleed',
+   () => 'size-md') }}"
+>
+    <ul
+        class="{{switch(
+   (columns === 'one') => 'grid-cols-1 lg:grid-cols-1',
+   (columns === 'two') => 'grid-cols-2',
+   (columns === 'three') => 'grid-cols-2 lg:grid-cols-3',
+   (columns === 'four') => 'grid-cols-2 lg:grid-cols-4',
+   () => 'grid-cols-2 lg:grid-cols-3') }} grid gap-4"
+    >
+        {{ images }}
+            <li
+                class="theme-rounded overflow-hidden shadow"
+                {{ if index > amount_to_show - 1 }} x-show="viewAll" x-cloak {{ /if }}
+            >
+                <a
+                    href="{{ url }}"
+                    class="relative"
+                    data-gallery="{{ gallery_id }}"
+                    data-title="{{ alt }}"
+                >
+                    {{ responsive:url glide:width="500" ratio="1/1" class="h-full w-full" }}
+                    {{#
+                        {{ glide:url square="500" }}
+                        <img src="{{ url }}" />
+                    #}}
+                    {{ if alt }}
+                        <span
+                            class="absolute bottom-0 right-0 w-full bg-black/70 p-1 text-right text-white"
+                        >
+                            {{ alt }}
+                        </span>
+                    {{ /if }}
+                    {{# {{ /glide:url }} #}}
+                </a>
+            </li>
+        {{ /images }}
+    </ul>
+    {{ if images | length > amount_to_show }}
+        <button
+            @click="viewAll = true"
+            x-show="!viewAll"
+            class="mt-4 flex w-full items-center justify-center space-x-2 bg-zinc-700 p-4 text-white"
+        >
+            <span>View All</span>
+            {{ svg src="icons/heroicons/outline/chevron-down" class="w-5 h-5" }}
+        </button>
+    {{ /if }}
+    {{ vite src="resources/js/glightbox.js" }}
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            const lightbox = GLightbox({
+                selector: "[data-gallery]",
+                loop: true,
+            });
+        });
+    </script>
+</section>
+{{# End: /components/_gallery.antlers.html #}}

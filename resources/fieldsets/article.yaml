@@ -1,7 +1,6 @@
 title: Article
 fields:
-  -
-    handle: article
+  - handle: article
     field:
       buttons:
         - h2
@@ -33,26 +32,61 @@ fields:
         figure:
           display: Figure
           fields:
-            -
-              import: figure
+            - import: figure
         pull_quote:
-          display: 'Pull quote'
+          display: "Pull quote"
           fields:
-            -
-              import: pull_quote
+            - import: pull_quote
         table:
           display: Table
           fields:
-            -
-              import: table
+            - import: table
         video:
           display: Video
           fields:
-            -
-              import: video
+            - import: video
+        button:
+          display: Button
+          fields:
+            - import: button
+        gallery:
+          display: Gallery
+          fields:
+            - handle: columns
+              field:
+                options:
+                  one: One
+                  two: Two
+                  three: Three
+                  four: Four
+                multiple: false
+                max_items: 1
+                clearable: false
+                searchable: false
+                taggable: false
+                push_tags: false
+                cast_booleans: false
+                default: "3"
+                display: Columns
+                type: select
+                icon: select
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+                validate:
+                  - required
+            - handle: images
+              field: common.image
+              config:
+                max_files: null
+                display: Images
+                validate:
+                  - image
+                folder: gallery
       container: assets
       enable_input_rules: true
       enable_paste_rules: true
       instructions_position: above
-      read_only: false
       antlers: false
+      visibility: visible
+      previews: true
