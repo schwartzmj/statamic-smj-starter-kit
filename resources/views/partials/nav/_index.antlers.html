@@ -1,8 +1,8 @@
 <!-- Outermost container sticks to top of screen, but is most necessary because it gets set to h-screen when mobile menu is open - and is a flex col container - which allows the pop-up menu to grow from the bottom of the navbar to fill the rest of the screen -->
 <div
-  :class="[showFixedNav ? 'fixed' : 'absolute']"
-  class="relative flex w-full flex-col"
-  x-data="{
+    :class="[showFixedNav ? 'fixed' : 'absolute']"
+    class="relative flex w-full flex-col"
+    x-data="{
         mobileMenuOpen: false,
         showFixedNav: false,
         atTopOfPage: window.pageYOffset === 0,
@@ -11,7 +11,7 @@
         furthestUserYOffset: window.pageYOffset,
         scrollThreshold: 250,
       }"
-  x-init="
+    x-init="
         window.addEventListener('scroll', () => {
             // reset if at top of page
             if (window.pageYOffset === 0 ) {
@@ -60,124 +60,127 @@
         });
       "
 >
-  <!-- Container for bg color while still allowing the nav container to have padding, via the very next element/container... -->
-  <style>
-    /* Create an animation that starts -100% transformY and ends at 0% transformY */
-    @keyframes slideIn {
-      0% {
-        transform: translateY(-100%);
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
-    .slideIn {
-      animation: slideIn 0.5s ease-in-out;
-    }
-    @keyframes slideOut {
-      0% {
-        transform: translateY(0);
-      }
-      100% {
-        transform: translateY(-100%);
-      }
-    }
-    .slideOut {
-      animation: slideOut 0.5s ease-in-out;
-    }
-  </style>
-  <nav
-    id="nav"
-    :class="[
+    <!-- Container for bg color while still allowing the nav container to have padding, via the very next element/container... -->
+    <style>
+        /* Create an animation that starts -100% transformY and ends at 0% transformY */
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        .slideIn {
+            animation: slideIn 0.5s ease-in-out;
+        }
+        @keyframes slideOut {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+        .slideOut {
+            animation: slideOut 0.5s ease-in-out;
+        }
+    </style>
+    <nav
+        id="nav"
+        :class="[
         showFixedNav && !atTopOfPage
         ? 'fixed slideIn top-0 left-0 z-[99] text-white shadow-lg'
         : '',
     ]"
-    class="w-full bg-white text-gray-500 transition-all duration-200"
-  >
-    <!-- Padding / main container -->
-    <div class="theme-container mx-auto flex items-center justify-between py-4">
-      <!-- Logos: colored and uncolored images for transparent and colored header -->
-      <a href="/" class="flex max-w-[8rem] items-center md:max-w-[10rem]">
-        {{ if logo_type === 'light' }}
-        <!-- Light -->
-        {{ responsive:site_config.logo_light x-show="atTopOfPage"
-        loading="eager" placeholder="false" }}
-        <!-- -->
-        {{ else }}
-        <!-- Normal / Dark -->
-        {{ responsive:site_config.logo x-show="atTopOfPage" loading="eager"
-        placeholder="false" }}
-        <!-- -->
-        {{ /if }}
-        <!-- Dark -->
-        {{ responsive:site_config.logo x-show="!atTopOfPage" placeholder="false"
-        loading="lazy" x-cloak="true" }}
-      </a>
-      <div class="flex items-center lg:space-x-8">
-        <!-- Desktop Nav Items -->
-        <ul
-          class="hidden items-center space-x-3 text-base lg:flex lg:space-x-8"
+        class="w-full bg-white text-gray-500 transition-all duration-200"
+    >
+        <!-- Padding / main container -->
+        <div
+            class="theme-container mx-auto flex items-center justify-between py-4"
         >
-          {{ nav:primary }}
-          <li>
-            {{ if children }}
-            <div
-              x-data="{ open: false }"
-              @click.away="open = false"
-              class="relative z-[9999]"
-              x-cloak
-            >
-              <button @click="open = !open" class="hidden items-center lg:flex">
-                <span>{{ title }}</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="ml-1 h-5 w-5 transform transition-transform duration-300 ease-in-out"
-                  :class="open ? 'rotate-180' : ''"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
+            <!-- Logos: colored and uncolored images for transparent and colored header -->
+            <a href="/" class="flex max-w-[8rem] items-center md:max-w-[10rem]">
+                {{ if logo_type === 'light' }}
+                    <!-- Light -->
+                    {{ responsive:site_config.logo_light x-show="atTopOfPage" loading="eager" placeholder="false" }}
+                    <!-- -->
+                {{ else }}
+                    <!-- Normal / Dark -->
+                    {{ responsive:site_config.logo x-show="atTopOfPage" loading="eager" placeholder="false" }}
+                    <!-- -->
+                {{ /if }}
+                <!-- Dark -->
+                {{ responsive:site_config.logo x-show="!atTopOfPage" placeholder="false" loading="lazy" x-cloak="true" }}
+            </a>
+            <div class="flex items-center lg:space-x-8">
+                <!-- Desktop Nav Items -->
+                <ul
+                    class="hidden items-center space-x-3 text-base lg:flex lg:space-x-8"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              <ul
-                x-show="open"
-                x-transition.duration.500ms
-                class="theme-rounded absolute top-full mt-4 flex flex-col items-start overflow-hidden bg-white text-sm uppercase text-gray-700 shadow"
-              >
-                {{ children }}
-                <li class="w-full">
-                  <a
-                    class="inline-block w-full px-8 py-4 transition duration-150 ease-in-out hover:bg-gray-100"
-                    href="{{ url }}"
-                    >{{ title }}</a
-                  >
-                </li>
-                {{ /children }}
-              </ul>
+                    {{ nav:primary }}
+                        <li class="group">
+                            {{ if children }}
+                                <div class="relative z-[9999]">
+                                    <a
+                                        href="{{ url }}"
+                                        class="flex items-center"
+                                    >
+                                        <span>{{ title }}</span>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="ml-1 h-5 w-5 transform transition-transform duration-300 ease-in-out group-hover:rotate-180"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M19 9l-7 7-7-7"
+                                            />
+                                        </svg>
+                                    </a>
+                                    <div
+                                        class="absolute top-full hidden overflow-hidden group-hover:block"
+                                    >
+                                        <div class="h-4 bg-transparent"></div>
+                                        <ul
+                                            class="theme-rounded bg-white text-sm uppercase text-gray-700 shadow"
+                                        >
+                                            {{ children }}
+                                                <li class="w-full">
+                                                    <a
+                                                        class="inline-block w-full px-8 py-4 transition duration-150 ease-in-out hover:bg-gray-100"
+                                                        href="{{ url }}"
+                                                    >
+                                                        {{ title }}
+                                                    </a>
+                                                </li>
+                                            {{ /children }}
+                                        </ul>
+                                    </div>
+                                </div>
+                            {{ else }}
+                                <a href="{{ url }}">{{ title }}</a>
+                            {{ /if }}
+                        </li>
+                    {{ /nav:primary }}
+                </ul>
             </div>
-            {{ else }}
-            <a href="{{ url }}">{{ title }}</a>
-            {{ /if }}
-          </li>
-          {{ /nav:primary }}
-        </ul>
-      </div>
-      <div class="flex items-center">
-        <!-- CTA -->
-        <div class="hidden lg:block">
-          {{ call_to_action }} {{ partial:components/button }} {{
-          /call_to_action }}
+            <div class="flex items-center">
+                <!-- CTA -->
+                <div class="hidden lg:block">
+                    {{ call_to_action }}
+                        {{ partial:components/button }}
+                    {{ /call_to_action }}
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="block lg:hidden">
+                    {{ partial:nav/mobile_menu }}
+                </div>
+            </div>
         </div>
-        <!-- Mobile Menu Button -->
-        <div class="block lg:hidden">{{ partial:nav/mobile_menu }}</div>
-      </div>
-    </div>
-  </nav>
+    </nav>
 </div>
