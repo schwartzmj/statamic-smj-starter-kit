@@ -1,0 +1,34 @@
+{{#
+    @name Article Header - Simple
+    @param image - Featured Image
+    @param featured_image - Featured Image
+    @param heading - Heading (defaults to Title)
+    @param body - Body
+    @param description - If no Body, use Description
+#}}
+
+<div class="relative bg-primary-900">
+    <div class="absolute inset-0">
+        {{ responsive src="{{image ?? featured_image ?? site_config:header_image}}" class="w-full h-full object-cover" loading="eager" }}
+        <div
+            class="absolute inset-0 bg-primary-800 mix-blend-multiply"
+            aria-hidden="true"
+        ></div>
+    </div>
+    <div
+        class="theme-container relative mx-auto py-20 lg:flex lg:items-center lg:justify-between lg:py-32"
+    >
+        <div class="max-w-xl">
+            <h1
+                class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl"
+            >
+                {{ heading ?? title }}
+            </h1>
+            {{ if body || description }}
+                <div class="mt-6 max-w-3xl text-xl text-primary-100">
+                    {{ body ?? description }}
+                </div>
+            {{ /if }}
+        </div>
+    </div>
+</div>
