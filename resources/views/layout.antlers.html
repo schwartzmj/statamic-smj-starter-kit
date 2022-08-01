@@ -12,7 +12,7 @@
         {{# Tailwind dev tools if not in prod #}}
         {{ cache }}
             {{ if environment !== 'production' }}
-                {{ partial:dev/tailwind }}
+                {{ partial:dev/toolbar }}
             {{ /if }}
         {{ /cache }}
         {{ vite src="resources/js/app.js" }}
