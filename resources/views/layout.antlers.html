@@ -9,7 +9,7 @@
         {{ cache }}
             {{ partial:footer }}
         {{ /cache }}
-        {{# Tailwind dev tools if not in prod #}}
+        {{# Dev toolbar if not in prod #}}
         {{ cache }}
             {{ if environment !== 'production' }}
                 {{ partial:dev/toolbar }}

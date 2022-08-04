@@ -5,6 +5,7 @@ export_paths:
   - content
   - config/filesystems.php
   - config/google-fonts.php
+  - config/mail.php
   - config/session.php
   - config/statamic/antlers.php
   - config/ray.php
@@ -35,3 +36,5 @@ dependencies:
   spatie/laravel-google-fonts: ^1.2
   spatie/laravel-ray: ^1.29
   spatie/statamic-responsive-images: ^2.12
+  symfony/http-client: ^6.0
+  symfony/postmark-mailer: ^6.0
