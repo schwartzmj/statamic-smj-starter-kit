@@ -24,6 +24,7 @@ export_paths:
   - tailwind.config.site.js
   - svelte.config.js
   - tsconfig.json
+  - tsconfig.node.json
   - users
   - vite.config.js
   - .prettierignore
