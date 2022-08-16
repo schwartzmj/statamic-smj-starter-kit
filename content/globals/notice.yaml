@@ -1,0 +1,5 @@
+title: Notice
+data:
+  enabled: true
+  date: '2050-01-01'
+  heading: 'This is a site-wide notice.'

@@ -9,6 +9,7 @@
         {{ cache }}
             {{ partial:footer }}
         {{ /cache }}
+        {{ partial:notice }}
         {{# Dev toolbar if not in prod #}}
         {{ cache }}
             {{ if environment !== 'production' }}
