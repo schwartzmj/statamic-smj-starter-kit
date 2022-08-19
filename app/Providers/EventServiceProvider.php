@@ -30,19 +30,20 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Event::listen(function (NavTreeSaved $event) {
-            // Whenever a nav is updated, we bust the cache for it.
-            // Statamic navs are expensive to render.
-            Cache::flush();
-        });
+        // Unnecessary b/c of config/statamic/static_caching.php invalidation set to 'all'
+        // Event::listen(function (NavTreeSaved $event) {
+        //     // Whenever a nav is updated, we bust the cache for it.
+        //     // Statamic navs are expensive to render.
+        //     Cache::flush();
+        // });
 
-        Event::listen(function (EntrySaved $event) {
-            // Whenever an entry is saved, we bust the 'nav' cache.
-            // This is because all entries that have a url (route/page) have an option to change the logo in the primary nav.
-            // If the logo is changed, we need to bust the cache so the new logo is shown.
-            if ($event->entry->url()) {
-                Cache::flush();
-            }
-        });
+        // Event::listen(function (EntrySaved $event) {
+        //     // Whenever an entry is saved, we bust the 'nav' cache.
+        //     // This is because all entries that have a url (route/page) have an option to change the logo in the primary nav.
+        //     // If the logo is changed, we need to bust the cache so the new logo is shown.
+        //     if ($event->entry->url()) {
+        //         Cache::flush();
+        //     }
+        // });
     }
 }
