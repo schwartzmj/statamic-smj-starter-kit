@@ -26,7 +26,6 @@ export_paths:
   - tailwind.config.cp.js
   - tailwind.config.site.js
   - tsconfig.json
-  - tsconfig.node.json
   - users
   - vite.config.js
   - .prettierignore
