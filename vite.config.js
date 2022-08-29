@@ -31,7 +31,7 @@ export default defineConfig({
       "resources/js/app.js",
       // Components
       "resources/js/glightbox.js",
-      "resources/js/Svelte/Counter/render.tsx",
+      "resources/js/Svelte/Counter/render.ts",
       // CP
       "resources/css/cp.css",
       "resources/js/cp.js",

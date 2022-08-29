@@ -3,7 +3,7 @@
 {{# Meta, etc. #}}
 <title>
     {{ seo:prepend_on_title }} {{ title }}
-    {{ seo:append_on_title ?? site:name }}
+    {{ seo:append_on_title ?? {'- ' + site:name} }}
 </title>
 <meta name="description" content="{{ description ?? seo:description }}" />
 <link rel="canonical" href="{{ permalink }}" />
@@ -11,7 +11,7 @@
 <meta property="og:site_name" content="{{ site:name }}" />
 <meta
     property="og:title"
-    content="{{ seo:prepend_on_title }} {{ title }} {{ seo:append_on_title ?? site:name }}"
+    content="{{ seo:prepend_on_title }} {{ title }} {{ seo:append_on_title ?? {'- ' + site:name} }}"
 />
 <meta
     property="og:description"
