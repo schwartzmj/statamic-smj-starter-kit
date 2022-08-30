@@ -22,6 +22,10 @@ fs.writeFileSync(
 // Here's how to output unhashed files?: https://github.com/vitejs/vite/discussions/3278#discussioncomment-721347
 // https://laravel.com/docs/9.x/vite
 export default defineConfig({
+  alias: {
+    react: "preact/compat",
+    "react-dom": "preact/compat",
+  },
   esbuild: {
     drop: ["console", "debugger"],
   },
