@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import laravel from "laravel-vite-plugin";
-import { svelte } from "@sveltejs/vite-plugin-svelte";
+import preact from "@preact/preset-vite";
 // import vue from '@vitejs/plugin-vue';
 // Partytown
 import path from "path";
@@ -31,14 +31,12 @@ export default defineConfig({
       "resources/js/app.js",
       // Components
       "resources/js/glightbox.js",
-      "resources/js/Svelte/Counter/render.ts",
+      "resources/js/Preact/Counter/render.tsx",
       // CP
       "resources/css/cp.css",
       "resources/js/cp.js",
     ]),
-    svelte({
-      /* plugin options */
-    }),
+    preact(),
     // laravel({
     //   input: "resources/js/app.js",
     //   publicDirectory: "public", // default
