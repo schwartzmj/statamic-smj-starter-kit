@@ -26,9 +26,11 @@ export default defineConfig({
     react: "preact/compat",
     "react-dom": "preact/compat",
   },
-  esbuild: {
-    drop: ["console", "debugger"],
-  },
+  //   esbuild: {
+  //     jsxFactory: "h",
+  //     jsxFragment: "Fragment",
+  //     jsxInject: `import { h, Fragment } from 'preact'`,
+  //   },
   plugins: [
     laravel([
       "resources/css/tailwind.css",
