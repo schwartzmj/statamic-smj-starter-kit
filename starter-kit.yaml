@@ -39,6 +39,6 @@ dependencies:
   schwartzmj/statamic-akismet: dev-main
   spatie/laravel-google-fonts: ^1.2
   spatie/laravel-ray: ^1.29
-  spatie/statamic-responsive-images: ^2.12
+  spatie/statamic-responsive-images: ^2.13.1
   symfony/http-client: ^6.0
   symfony/postmark-mailer: ^6.0
